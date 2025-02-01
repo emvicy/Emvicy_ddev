@@ -1,8 +1,4 @@
-# add this to project A, allows connection to project B
-services:
-  web:
-    external_links:
-      - "ddev-router:msp1x.ddev.site"
-      - "ddev-router:ikp4x.ddev.site"
-      - "ddev-router:cds1x.ddev.site"
-      - "ddev-router:cdm2x.ddev.site"
+## add this to project A, allows connection to project B
+#services:
+#  web:
+#    external_links:
