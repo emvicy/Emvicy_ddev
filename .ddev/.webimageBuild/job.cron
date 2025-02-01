@@ -1,4 +1,0 @@
-
-#----------------------------------------
-# Emvicy 2.x
-* * * * * cd /var/www/html; /usr/bin/php emvicy cron:run > /dev/null 2>/dev/null;
