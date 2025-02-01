@@ -1,0 +1,131 @@
+#ddev-generated
+# If you remove the ddev-generated line above you
+# are responsible for maintaining this file. DDEV will not then
+# update it, for example if you add `additional_hostnames`, etc.
+
+http:
+  routers:
+    Emvicy2xDev-phpmyadmin-80-http:
+      entrypoints:
+        - http-8036
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-phpmyadmin-80"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "Emvicy2xDev-redirectHttps"
+    Emvicy2xDev-web-80-http:
+      entrypoints:
+        - http-80
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-80"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "Emvicy2xDev-redirectHttps"
+    Emvicy2xDev-web-8025-http:
+      entrypoints:
+        - http-8025
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-8025"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "Emvicy2xDev-redirectHttps"
+    Emvicy2xDev-web-8000-http:
+      entrypoints:
+        - http-7999
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-8000"
+      ruleSyntax: v3
+      tls: false
+      # middlewares:
+      #   - "Emvicy2xDev-redirectHttps"
+    
+    
+    Emvicy2xDev-phpmyadmin-80-https:
+      entrypoints:
+        - http-8037
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-phpmyadmin-80"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    
+    
+    
+    Emvicy2xDev-web-80-https:
+      entrypoints:
+        - http-443
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-80"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    Emvicy2xDev-web-8025-https:
+      entrypoints:
+        - http-8026
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-8025"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    Emvicy2xDev-web-8000-https:
+      entrypoints:
+        - http-8000
+      rule: HostRegexp(`^emvicy2xdev\.ddev\.site$`)
+      
+      service: "Emvicy2xDev-web-8000"
+      ruleSyntax: v3
+      
+      tls: true
+      
+    
+
+  middlewares:
+    Emvicy2xDev-redirectHttps:
+      redirectScheme:
+        scheme: https
+        permanent: true
+
+  services:
+    Emvicy2xDev-phpmyadmin-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-Emvicy2xDev-phpmyadmin:80
+        
+    
+    Emvicy2xDev-web-80:
+      loadbalancer:
+        servers:
+          - url: http://ddev-Emvicy2xDev-web:80
+        
+    Emvicy2xDev-web-8025:
+      loadbalancer:
+        servers:
+          - url: http://ddev-Emvicy2xDev-web:8025
+        
+    Emvicy2xDev-web-8000:
+      loadbalancer:
+        servers:
+          - url: http://ddev-Emvicy2xDev-web:8000
+        
+    
+    
+    
+    
+
+tls:
+  certificates:
+    - certFile: /mnt/ddev-global-cache/traefik/certs/Emvicy2xDev.crt
+      keyFile: /mnt/ddev-global-cache/traefik/certs/Emvicy2xDev.key
